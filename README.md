@@ -14,13 +14,19 @@ A Streamlit app that creates an AI persona based on interview transcripts, allow
    ```
    OPENROUTER_API_KEY=your_openrouter_api_key_here
    PINECONE_API_KEY=your_pinecone_api_key_here
-   COHERE_API_KEY=your_cohere_api_key_here  # optional
+   COHERE_API_KEY=your_cohere_api_key_here
    ```
 
 3. **Run the app:**
    ```bash
    streamlit run app.py
    ```
+
+4. **Initialize the system:**
+   - The app will show a simple "Initialize AI System" button
+   - Click it to start the RAG setup process
+   - Watch the progress as it loads the transcript, creates embeddings, and sets up the database
+   - Once complete, you can start chatting with the AI persona
 
 ## 🔑 Getting API Keys
 
@@ -38,7 +44,10 @@ A Streamlit app that creates an AI persona based on interview transcripts, allow
 ## 🎯 Features
 
 - Creates an AI persona from interview transcripts
-- Interactive chat interface
+- Interactive chat interface with modern UI
+- **On-demand RAG system initialization** - no more slow loading!
+- **Real-time progress tracking** during system setup
+- **Cohere AI embeddings** for better semantic search
 - Persistent conversation history
 - Error handling and user feedback
 - Responsive design
