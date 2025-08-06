@@ -113,6 +113,8 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 if "setup_complete" not in st.session_state:
     st.session_state.setup_complete = False
+if "input_key" not in st.session_state:
+    st.session_state.input_key = 0
 
 def initialize_rag_system():
     """Initialize the RAG system with simple progress tracking"""
@@ -418,7 +420,7 @@ else:
     with col1:
         user_input = st.text_input(
             "Type your message...", 
-            key="chat_input",
+            key=f"chat_input_{st.session_state.input_key}",
             placeholder="Ask me about my research, experiences, or anything else..."
         )
     with col2:
@@ -431,6 +433,7 @@ else:
                 response = qa_chain.invoke({"question": user_input})
                 st.session_state.chat_history.append(("You", user_input))
                 st.session_state.chat_history.append(("Interviewee", response["answer"]))
+                st.session_state.input_key += 1  # Increment key to clear input
                 st.rerun()
             except Exception as e:
                 st.error(f"Error getting response: {str(e)}")
@@ -444,6 +447,7 @@ else:
     with col1:
         if st.button("🗑️ Clear Chat", use_container_width=True):
             st.session_state.chat_history = []
+            st.session_state.input_key += 1  # Reset input key to clear field
             st.rerun()
     with col2:
         # Download Jamie's transcript
