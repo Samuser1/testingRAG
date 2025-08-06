@@ -10,7 +10,11 @@ A Streamlit app that creates an AI persona based on interview transcripts, allow
    ```
 
 2. **Set up environment variables:**
-   Create a `.env` file in the project root with:
+   Copy the example environment file and add your API keys:
+   ```bash
+   cp .env.example .env
+   ```
+   Then edit `.env` and replace the placeholder values with your actual API keys:
    ```
    OPENROUTER_API_KEY=your_openrouter_api_key_here
    PINECONE_API_KEY=your_pinecone_api_key_here
@@ -51,6 +55,13 @@ A Streamlit app that creates an AI persona based on interview transcripts, allow
 - Persistent conversation history
 - Error handling and user feedback
 - Responsive design
+
+## 🔒 Security Notes
+
+- **Never commit your `.env` file** - it contains sensitive API keys
+- The `.env` file is already in `.gitignore` to prevent accidental commits
+- Use `.env.example` as a template for your environment variables
+- If you accidentally commit API keys, immediately rotate them in your service accounts
 
 ## 🐛 Troubleshooting
 
