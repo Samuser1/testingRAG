@@ -1,0 +1,14 @@
+langchain
+openai            # OpenRouter-compatible
+langchain-openai
+langchain-huggingface
+langchain-pinecone
+langchain-cohere
+python-dotenv
+sentence-transformers
+cohere
+tiktoken
+pinecone-client
+pypdf
+fastapi
+uvicorn[standard]
