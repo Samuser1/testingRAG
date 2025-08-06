@@ -12,3 +12,4 @@ pinecone-client
 pypdf
 fastapi
 uvicorn[standard]
+streamlit

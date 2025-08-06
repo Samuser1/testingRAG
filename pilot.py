@@ -247,12 +247,18 @@ qa_chain = ConversationalRetrievalChain.from_llm(
 )
 
 print("✅ Persona Q&A ready.")
-print("Ask anything to the interviewee. Type 'exit' to quit.\n")
 
-while True:
-    user_question = input("You: ")
-    if user_question.lower() in ["exit", "quit"]:
-        break
+# Only run the interactive loop if this script is run directly
+if __name__ == "__main__":
+    print("Ask anything to the interviewee. Type 'exit' to quit.\n")
     
-    response = qa_chain.invoke({"question": user_question})
-    print(f"\n{profile['name']}: {response['answer']}\n")
+    while True:
+        user_question = input("You: ")
+        if user_question.lower() in ["exit", "quit"]:
+            break
+        
+        response = qa_chain.invoke({"question": user_question})
+        print(f"\n{profile['name']}: {response['answer']}\n")
+else:
+    # When imported by Streamlit, just print a success message
+    print("✅ Persona Q&A ready for Streamlit interface.")
